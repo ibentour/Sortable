@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --primary-color: #FF885B;
+  --secondary-color: #2ecc71;
+  --text-color: #ffffff;
+  --card-background: #36363681;
+  --hover-color: #e74c3c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  background-image: url('Dark-superhero-wallpapers.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--card-background);
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  font-weight: 600;
+  font-size: 4em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: titlePulse 2s infinite alternate;
+}
+
+@keyframes titlePulse {
+  from { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); }
+  to { text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); }
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+#search, #pageSize {
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#search {
+  width: 250px;
+}
+
+#search:focus, #pageSize:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #000000;
+  transition: background-color 0.3s ease;
+}
+
+th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+th:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+th:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+th:hover {
+  background-color: var(--hover-color);
+  cursor: pointer;
+}
+
+tr {
+  background-color: var(--card-background);
+  transition: all 0.3s ease;
+}
+
+tr:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+td img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+td img:hover {
+  transform: scale(1.2);
+}
+
+.powerstats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .powerstat {
+    flex: 1 1 calc(50% - 5px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.9em;
+  }
+  
+@media (min-width: 1200px) {
+    .powerstat {
+      flex: 1 1 calc(33.333% - 5px);
+    }
+}
+
+#pagination {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 30px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#pagination::-webkit-scrollbar {
+  height: 8px;
+}
+
+#pagination::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+#pagination::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+#pagination::-webkit-scrollbar-thumb:hover {
+  background: var(--hover-color);
+}
+
+#pagination button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  min-width: 40px;
+}
+
+@media (max-width: 768px) {
+  #pagination {
+    justify-content: flex-start;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  #pagination button {
+    font-size: 0.9em;
+    padding: 8px 12px;
+  }
+}
+
+#pagination button:hover, #pagination button.active {
+  background-color: var(--hover-color);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+  }
+
+  #search, #pageSize {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  table {
+    font-size: 0.9em;
+  }
+}
