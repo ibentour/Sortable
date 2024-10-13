@@ -74,10 +74,14 @@ const searchHeroes = () => {
     const searchInput = document.getElementById('search');
     const filter = searchInput.value.toLowerCase();
     
-    filteredHeroes = allHeroes.filter(hero => 
-        hero.name.toLowerCase().includes(filter) ||
-        hero.biography.fullName.toLowerCase().includes(filter)
-    );
+    if (filter === '') {
+        filteredHeroes = [...allHeroes];
+    } else {
+        filteredHeroes = allHeroes.filter(hero => 
+            hero.name.toLowerCase().startsWith(filter) ||
+            hero.name.toLowerCase().includes(filter)
+        );
+    }
     
     currentPage = 1;
     sortHeroes(currentSort.column, currentSort.direction);
